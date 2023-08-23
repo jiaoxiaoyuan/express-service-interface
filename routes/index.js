@@ -12,4 +12,8 @@ router.post('/api/mscamps/:id', TsesApi.post)
 router.put('/api/mscamps/:id', TsesApi.put)
 router.delete('/api/mscamps/:id', TsesApi.delete)
 
+/**
+ *  @description
+ */
+
 module.exports = router

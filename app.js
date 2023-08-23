@@ -6,7 +6,7 @@ const app = express()
 const { getIPAdress } = require('./utils/os')
 
 const logger = require('./middleware/logger')
-// const morgan = require('./middleware/morgan')
+const ErrorCatch = require('./middleware/err.handler')
 
 const ApiRouter = require('./routes')
 /**
@@ -37,9 +37,9 @@ app.get('/', (req, res) => {
 /**
  * 创建中间件
  */
-
 app.all('*', logger)
-
+// 错误处理中间件
+app.use(ErrorCatch)
 /**
  *  挂载路由地址
  */

@@ -1,3 +1,10 @@
+/**
+ * 中间件
+ * @param {*} req
+ * @param {*} res
+ * @param {*} next
+ */
+
 const logger = (req, res, next) => {
     console.log(`${req.method} ${req.protocol}://${req.get('host')}${req.originalUrl}`)
 
@@ -13,6 +20,12 @@ const logger = (req, res, next) => {
     } else {
         next()
     }
+
+    // 资源404
+    res.status(200).json({
+        code: 404,
+        msg: '资源不存在'
+    })
 }
 
 module.exports = logger
