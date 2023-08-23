@@ -3,9 +3,28 @@
 #### 介绍
 node后端服务接口封装
 
-#### 软件架构
-软件架构说明
-
+#### 目录结构
+```
+.
+├── app.js                      #主入口文件
+├── package.json
+├── config                      #配置文件夹
+|    └── db.config              #数据库配置文件
+|    └── redis.config           #redis配置文件
+|    └── config.env             #基础配置
+├── logs                        #日志文件夹
+├── public                      #静态文件
+├── app                         #应用入口
+|    └── common                 #公共
+|    └── controller             #控制器
+|    └── model                  #数据库操作
+├── middleware                  #中间件
+|    └── cors.ts
+│    └── index
+|       └── checkLogin.ts
+├── util # 公共
+│    └── util.ts
+```
 
 #### 安装教程
 
