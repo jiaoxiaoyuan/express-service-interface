@@ -7,6 +7,8 @@ const { getIPAdress } = require('./utils/os')
 
 const logger = require('./middleware/logger')
 // const morgan = require('./middleware/morgan')
+
+const ApiRouter = require('./routes')
 /**
  * 设置环境端口
  */
@@ -24,32 +26,6 @@ app.get('/', (req, res) => {
     res.status(200).json({ success: true, msg: 'Hello World!' })
 })
 
-// 获取所以数据
-app.get('/api/v1/mscamps', (req, res) => {
-    res.status(200).json({ success: true, msg: '获取到所以数据' })
-})
-
-//获取单个数据
-app.get('/api/v1/mscamps/:id', (req, res) => {
-    res.status(200).json({ success: true, msg: `获取到数据:${req.params.id}` })
-})
-
-// 添加数据
-
-app.post('/api/v1/mscamps/', (req, res) => {
-    res.status(200).json({ success: true, msg: `创建了新数据` })
-})
-
-// 更新数据
-app.put('/api/v1/mscamps/:id', (req, res) => {
-    res.status(200).json({ success: true, msg: `更新了数据:${req.params.id}` })
-})
-
-// 删除数据
-app.delete('/api/v1/mscamps/:id', (req, res) => {
-    res.status(200).json({ success: true, msg: `删除了数据:${req.params.id}` })
-})
-
 /**
  * 静态资源模版
  */
@@ -63,9 +39,11 @@ app.delete('/api/v1/mscamps/:id', (req, res) => {
  */
 
 app.all('*', logger)
+
 /**
  *  挂载路由地址
  */
+app.use(ApiRouter)
 
 /**
  * 监听服务
