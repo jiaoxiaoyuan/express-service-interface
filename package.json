@@ -1,7 +1,7 @@
 {
   "name": "nodeapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "node后端服务接口封装",
   "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=producticon node app",
