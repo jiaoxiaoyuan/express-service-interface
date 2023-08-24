@@ -18,6 +18,8 @@ dotenv.config({
 // 链接数据库
 // connectDB()
 
+console.log(connectDB)
+
 const port = process.env.PORT || 3000
 // app.use('/v1/api', express.static('public'))
 app.get('/', (req, res) => {
