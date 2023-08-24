@@ -22,10 +22,10 @@ const logger = (req, res, next) => {
     }
 
     // 资源404
-    res.status(200).json({
-        code: 404,
-        msg: '资源不存在'
-    })
+    // res.status(200).json({
+    //     code: 404,
+    //     msg: '资源不存在'
+    // })
 }
 
 module.exports = logger

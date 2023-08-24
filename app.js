@@ -39,7 +39,7 @@ app.get('/', (req, res) => {
  */
 app.all('*', logger)
 // 错误处理中间件
-app.use(ErrorCatch)
+// app.use(ErrorCatch)
 /**
  *  挂载路由地址
  */
