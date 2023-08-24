@@ -4,21 +4,21 @@
   "description": "node后端服务接口封装",
   "main": "app.js",
   "scripts": {
-    "start": "NODE_ENV=producticon node app",
+    "start": "NODE_ENV=producticon node app --verbose",
     "dev": "nodemon app"
   },
   "author": "JIAOXIAOYUAN",
   "license": "MIT",
   "dependencies": {
+    "dayjs": "^1.11.9",
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-jwt": "^8.4.1",
     "express-session": "^1.17.3",
+    "mongoose": "^7.4.4",
     "morgan": "^1.10.0",
     "mysql2": "^3.6.0",
-    "qs": "^6.11.2",
-    "swagger-jsdoc": "^6.2.8",
-    "swagger-ui-express": "^5.0.0"
+    "qs": "^6.11.2"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
