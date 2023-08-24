@@ -7,7 +7,7 @@ const { getIPAdress } = require('./utils/os')
 const logger = require('./middleware/logger')
 const ErrorCatch = require('./middleware/err.handler')
 const ApiRouter = require('./routes')
-const connectDB = require('./config/db.mongoose')
+// const connectDB = require('./config/db.mongoose')
 /**
  * 设置环境端口
  */
@@ -16,9 +16,6 @@ dotenv.config({
 })
 
 // 链接数据库
-// connectDB()
-
-console.log(connectDB)
 
 const port = process.env.PORT || 3000
 // app.use('/v1/api', express.static('public'))
