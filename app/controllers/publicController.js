@@ -7,6 +7,8 @@ const os = require('os')
 const dayjs = require('dayjs')
 const request = require('request')
 const { WeatherUrl, WeatherKey, publicUrl, appId, appSecret } = require('../../config/common')
+
+const useModel = require('../models/use.model')
 module.exports = {
     /**
      * @description 获取天气

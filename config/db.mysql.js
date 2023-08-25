@@ -2,7 +2,7 @@ module.exports = {
     mysql: {
         host: '129.28.153.89',
         post: '3306',
-        user: 'nativebase',
+        user: 'NativeBase',
         password: 'iAb4bDwZ7ENyJcyZ',
         database: 'nativebase',
 
