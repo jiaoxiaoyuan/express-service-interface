@@ -7,7 +7,7 @@ const { getIPAdress } = require('./utils/os')
 const logger = require('./middleware/logger')
 const ErrorCatch = require('./middleware/err.handler')
 const ApiRouter = require('./routes')
-// const connectDB = require('./config/db.mongoose')
+// const connectDB = require('./config/db.js')
 /**
  * 设置环境端口
  */
@@ -16,6 +16,7 @@ dotenv.config({
 })
 
 // 链接数据库
+// connectDB()
 
 const port = process.env.PORT || 3000
 // app.use('/v1/api', express.static('public'))
@@ -50,3 +51,11 @@ const server = app.listen(port, () => {
 
 // 设置服务永不超时
 server.setTimeout(0)
+
+// process.on('unhandledRejection', (err, promise) => {
+//     console.log(`Error: ${err.message}`.red.bold)
+//     // 关闭服务器 & 退出进程
+//     server.close(() => {
+//         process.exit(1)
+//     })
+// })

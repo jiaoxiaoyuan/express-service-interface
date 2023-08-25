@@ -2,7 +2,7 @@
 //1.导入mongoose模块
 const Mongoose = require('mongoose')
 // 2.定义MongoDB数据库的连接字符串：协议://主机地址:端口号/数据库名
-const mdb_url = 'mongodb://129.28.153.89/:23753/ZHOUYI_DB'
+const mdb_url = 'mongodb://nativebase:123456@129.28.153.89/:23753/nativebase'
 /*  3.建立和MongoDB数据库的连接:
        useNewUrlParser：是否使用新的url地址转换方式
        useUnifiedTopology：是否使用新的用户安全策略
