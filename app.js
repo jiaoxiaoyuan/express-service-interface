@@ -29,22 +29,16 @@ app.use(express.urlencoded({ extended: false }))
 // 配置解析json数据的中间件
 // app.use(express.json())
 
-// app.use('/v1/api', express.static('public'))
+// 公共资源访问
 app.get('/', (req, res) => {
     res.status(200).json({ success: true, msg: 'Hello World!' })
 })
 
 /**
- * 静态资源模版
- *
-// const path = require('path')
-// const publicDir = path.join(__dirname, 'public')
-// app.use(express.static(publicDir))
-
-/**
  * 创建中间件
  */
 app.all('*', logger)
+
 // 错误处理中间件
 // app.use(ErrorCatch)
 /**

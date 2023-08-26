@@ -33,10 +33,35 @@ module.exports = {
                 reject(error)
             }
         })
-    }
+    },
     /**
-     *  查询当前所有用户
+     *  登陆接口
      * @param username 用户名
+     * @param passWord 密码
      * @returns
      */
+    login({ username, passWord }) {
+        return new Promise((resolve, reject) => {
+            try {
+                pool.query(SqlMap.use.get, [username], function (error, result, fields) {
+                    if (error) {
+                        resolve({
+                            success: false,
+                            msg: '请求失败!',
+                            data: error
+                        })
+                    } else {
+                        resolve({
+                            code: 200,
+                            success: true,
+                            msg: '请求成功',
+                            data: result
+                        })
+                    }
+                })
+            } catch (error) {
+                reject(error)
+            }
+        })
+    }
 }
