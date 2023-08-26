@@ -1,6 +1,6 @@
 const express = require('express')
 const dotenv = require('dotenv')
-
+const connectDB = require('./config/db.mongo')
 const app = express()
 
 const { getIPAdress } = require('./utils/os')
