@@ -40,23 +40,33 @@ module.exports = {
      * @param passWord 密码
      * @returns
      */
-    login({ username, passWord }) {
+    login({ userName, passWord }) {
         return new Promise((resolve, reject) => {
             try {
-                pool.query(SqlMap.use.get, [username], function (error, result, fields) {
+                pool.query(SqlMap.use.get, [userName], function (error, result, fields) {
                     if (error) {
                         resolve({
+                            code: 400,
                             success: false,
                             msg: '请求失败!',
                             data: error
                         })
                     } else {
-                        resolve({
-                            code: 200,
-                            success: true,
-                            msg: '请求成功',
-                            data: result
-                        })
+                        if (result.length == 0) {
+                            resolve({
+                                code: 200,
+                                success: true,
+                                msg: '账号不存在或者被禁用!',
+                                data: null
+                            })
+                        } else {
+                            resolve({
+                                code: 200,
+                                success: true,
+                                msg: '请求成功',
+                                data: result[0]
+                            })
+                        }
                     }
                 })
             } catch (error) {

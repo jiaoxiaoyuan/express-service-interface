@@ -35,41 +35,18 @@ module.exports = {
     /**
      *  @description 登陆用户
      */
-    login(req, res) {
+    async login(req, res) {
         try {
-            // 验证用户名密码是否正确
-            let { username, passWord } = req.body
-            if (!username && !passWord) {
-                useModel
-                    .login(req.body)
-                    .then(data => {
-                        if (data && data.length > 0) {
-                            res.status(200).json({
-                                success: true,
-                                code: 200,
-                                msg: '请求成功！',
-                                data: data
-                            })
-                        } else {
-                            res.status(200).json({
-                                code: 200,
-                                success: false,
-                                msg: '没有该用户！'
-                            })
-                        }
-                    })
-                    .catch(err => {
-                        res.status(500).json({
-                            msg: e.message
-                        })
-                    })
-            } else {
-                res.status(200).json({
-                    code: 200,
-                    success: false,
-                    msg: '登陆帐号或密码不能为空！'
+            await useModel
+                .login(req.body)
+                .then(async data => {
+                    res.status(200).json(await data)
                 })
-            }
+                .catch(err => {
+                    res.status(500).json({
+                        msg: err.message
+                    })
+                })
         } catch (e) {
             res.status(500).json({
                 msg: e.message
