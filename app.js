@@ -14,11 +14,21 @@ const ApiRouter = require('./routes')
 dotenv.config({
     path: './config/config.env'
 })
+const port = process.env.PORT || 3000
 
 // 链接数据库
 // connectDB()
 
-const port = process.env.PORT || 3000
+// 跨域中间件
+const cors = require('cors')
+app.use(cors())
+
+// 配置解析表单数据的中间件，注意：只能解析application/x-www-form-urlencoded
+app.use(express.urlencoded({ extended: false }))
+
+// 配置解析json数据的中间件
+// app.use(express.json())
+
 // app.use('/v1/api', express.static('public'))
 app.get('/', (req, res) => {
     res.status(200).json({ success: true, msg: 'Hello World!' })
@@ -26,7 +36,7 @@ app.get('/', (req, res) => {
 
 /**
  * 静态资源模版
- */
+ *
 // const path = require('path')
 // const publicDir = path.join(__dirname, 'public')
 // app.use(express.static(publicDir))
@@ -51,11 +61,3 @@ const server = app.listen(port, () => {
 
 // 设置服务永不超时
 server.setTimeout(0)
-
-// process.on('unhandledRejection', (err, promise) => {
-//     console.log(`Error: ${err.message}`.red.bold)
-//     // 关闭服务器 & 退出进程
-//     server.close(() => {
-//         process.exit(1)
-//     })
-// })

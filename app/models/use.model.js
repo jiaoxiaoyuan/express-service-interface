@@ -14,7 +14,7 @@ module.exports = {
     AllUser(params) {
         return new Promise((resolve, reject) => {
             try {
-                pool.query(SqlMap.admin.list, params, function (error, result, fields) {
+                pool.query(SqlMap.use.list, params, function (error, result, fields) {
                     if (error) {
                         resolve({
                             success: false,
@@ -34,4 +34,9 @@ module.exports = {
             }
         })
     }
+    /**
+     *  查询当前所有用户
+     * @param username 用户名
+     * @returns
+     */
 }

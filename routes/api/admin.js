@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 /**
- * 公共接口路由
+ * 用户接口路由
  */
 const UsersApi = require('../../app/controllers/UsersController')
 
