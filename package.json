@@ -6,7 +6,7 @@
   "scripts": {
     "start": "NODE_ENV=producticon node app --verbose",
     "dev": "nodemon app",
-    "build": "nodemon app"
+    "build": "node app.js"
   },
   "author": "JIAOXIAOYUAN",
   "license": "MIT",
