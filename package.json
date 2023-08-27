@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start": "NODE_ENV=producticon node app --verbose",
-    "dev": "nodemon app"
+    "dev": "nodemon app",
+    "build": "nodemon app"
   },
   "author": "JIAOXIAOYUAN",
   "license": "MIT",
